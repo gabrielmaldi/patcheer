@@ -21,7 +21,7 @@ export async function copy(packageName) {
       await mkdir(patchesPath, { recursive: true });
     }
 
-    await exec(`cp -R ${sourcePath} ${destPath}`);
+    await exec(`mkdir -p ${destPath} && cp -R ${sourcePath} ${destPath}`);
     console.log(`Package ${packageName} copied successfully.`);
   } catch (err) {
     console.error(`Error copying package ${packageName}:`, err);
